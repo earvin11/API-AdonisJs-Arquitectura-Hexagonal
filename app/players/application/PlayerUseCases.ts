@@ -9,7 +9,7 @@ export class PlayerUseCases {
         private readonly playerRepository: PlayerRepository
     ) {}
 
-    public createPlayer = async(player: PlayerEntity) => {
+    public async createPlayer (player: PlayerEntity) {
         const newPlayer = new Player(player);
         const playerCreated = await this.playerRepository.createPlayer(newPlayer);
 

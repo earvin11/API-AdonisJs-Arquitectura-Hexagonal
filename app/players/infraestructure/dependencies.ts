@@ -1,6 +1,6 @@
 import { PlayerUseCases } from '../application/PlayerUseCases';
 import { PlayerController } from './player.controller';
-import { PlayerMongoRepository } from './player.repository';
+import { PlayerMongoRepository } from './player-mongo.repository';
 
 
 const playerRepository = new PlayerMongoRepository();

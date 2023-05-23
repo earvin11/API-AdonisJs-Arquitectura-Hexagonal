@@ -20,7 +20,7 @@ export class PlayerController {
             name,
             lastName,
             age
-        }
+        };
 
         try {
             const playerCreated = await this.playerUseCases.createPlayer(player);

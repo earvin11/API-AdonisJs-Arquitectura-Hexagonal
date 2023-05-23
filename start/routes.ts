@@ -18,11 +18,13 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from '@ioc:Adonis/Core/Route';
 import PlayerRoutes from 'App/players/infraestructure/player.routes';
+import TeamRoutes from 'App/teams/infraestructure/team.routes';
 
 Route.get('/', async () => {
   return { hello: 'world' }
 });
 
 Route.group(PlayerRoutes).prefix('players');
+Route.group(TeamRoutes).prefix('teams');

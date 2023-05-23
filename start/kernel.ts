@@ -42,4 +42,5 @@ Server.middleware.register([
 */
 Server.middleware.registerNamed({
   createPlayer: () => import('../app/players/infraestructure/createPlayer.middleware'),
-})
+  createTeam: () => import('../app/teams/infraestructure/createTeam.middleware')
+});
