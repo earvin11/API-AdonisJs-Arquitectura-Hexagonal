@@ -4,6 +4,8 @@ import { teamController } from './dependencies';
 
 const TeamRoutes = () => {
     Route.post('/create', teamController.createTeam).middleware(['createTeam']);
+    Route.get('/all', teamController.getAllTeams);
+    Route.get('/:uuid', teamController.getTeamByUuid);
 };
 
 

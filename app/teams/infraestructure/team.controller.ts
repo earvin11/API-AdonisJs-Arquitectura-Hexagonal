@@ -31,4 +31,27 @@ export class TeamController {
         }
     }
 
+    public getAllTeams = async({ response }: HttpContext) => {
+        try {
+            const teams = await this.teamUseCases.getAllTeams();
+            response.ok({ message: 'Teams obtained', teams });
+        } catch (error) {
+            console.log('ERROR GET ALL TEAMS -> ', error);
+            response.internalServerError({ error: 'FALIED GET ALL TEAMS' });
+        }
+    }
+
+    public getTeamByUuid = async({ request, response }: HttpContext) => {
+        const { uuid } = request.params();
+        try {
+            const team = await this.teamUseCases.getTeamByUuid(uuid);
+            if(!team) return response.notFound({ error: 'Team not found' });
+
+            response.ok({ message: 'Team obtained', team });
+        } catch (error) {
+            console.log('ERROR GET TEAM BY UUID -> ', error);
+            response.internalServerError({ error: 'FALIED GET TEAM' });
+        }
+    }
+
 };

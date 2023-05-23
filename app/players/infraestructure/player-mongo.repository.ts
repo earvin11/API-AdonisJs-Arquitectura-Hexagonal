@@ -10,6 +10,11 @@ export class PlayerMongoRepository implements PlayerRepository {
         return playerCreated;
     }
 
+    public async getAllPlayers(): Promise<PlayerEntity[] | []> {
+        const players = await PlayerModel.find().exec();
+        return players;
+    }
+
     public async getPlayerByUuid ( uuid: string ): Promise<PlayerEntity | null> {
         const player = await PlayerModel.findOne({ uuid });
         if(!player) return null;
